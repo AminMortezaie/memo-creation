@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-*h!rn=&9!#svn=l!)5tv#$*#l+u6@6=n-yehi9p@+(f^8e-%i6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,9 +76,13 @@ WSGI_APPLICATION = 'memo_creation.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "db",  # set in docker-compose.yml
+        "PORT": 5432,  # default postgres port
     }
 }
 
